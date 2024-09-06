@@ -1,12 +1,15 @@
 import durotarJSON from "../assets/durotar.json";
 import { Player } from "../entities/player";
 import { Enemy } from "../entities/enemy";
+import { Bear } from "../entities/bear";
+import { Goat } from "../entities/goat";
 import { TILES, SIZES, LAYERS, SPRITES } from "../utils/constants";
 
 export class Durotar extends Phaser.Scene {
   private player?: Player;
-  private bear: Enemy;
-  private goat: Enemy;
+  private goat: Goat;
+  private bear: Bear;
+
   constructor() {
     super("DurotarScene");
   }
@@ -43,15 +46,8 @@ export class Durotar extends Phaser.Scene {
     const wallsdLayer = map.createLayer(LAYERS.WALLS, tileset, 0, 0);
 
     this.player = new Player(this, 400, 250, SPRITES.PLAYER);
-    this.bear = new Enemy(this, 50, 450, SPRITES.BEAR.base);
-    this.bear.setSize(36, 36);
-    this.bear.setOffset(10, 12);
-    this.bear.setScale(0.9);
-
-    this.goat = new Enemy(this, 450, 250, SPRITES.GOAT.base);
-    this.goat.setSize(55, 55);
-    this.goat.setOffset(22, 36);
-    this.goat.setScale(0.3);
+    this.bear = new Bear(this, 50, 450, SPRITES.BEAR.base);
+    this.goat = new Goat(this, 450, 250, SPRITES.GOAT.base);
 
     this.cameras.main.startFollow(this.player);
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
