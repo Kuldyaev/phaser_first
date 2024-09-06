@@ -1,0 +1,34 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "durotar.json",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "durotar.json": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 617,
+                "y": 311.3333333333333
+            }
+        },
+        "durotar.json#durotar": {
+            "scaleInDock": 1
+        }
+    },
+    "last.imagePath": "C:/js/phaser/phaser_game/src/assets",
+    "map.lastUsedFormat": "json",
+    "openFiles": [
+        "durotar.json"
+    ],
+    "project": "phaser-rpg.tiled-project",
+    "recentFiles": [
+        "durotar.json"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.spacing": 1
+}
