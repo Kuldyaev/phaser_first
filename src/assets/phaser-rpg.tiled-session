@@ -9,15 +9,15 @@
     ],
     "fileStates": {
         "durotar.json": {
-            "scale": 1.5,
-            "selectedLayer": 0,
+            "scale": 0.33,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 617,
-                "y": 311.3333333333333
+                "x": 712.1212121212121,
+                "y": -1022.7272727272727
             }
         },
         "durotar.json#durotar": {
-            "scaleInDock": 1
+            "scaleInDock": 0.33
         }
     },
     "last.imagePath": "C:/js/phaser/phaser_game/src/assets",
