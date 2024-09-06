@@ -32,6 +32,7 @@ export class Durotar extends Phaser.Scene {
     this.player = new Player(this, 400, 250, SPRITES.PLAYER);
 
     this.cameras.main.startFollow(this.player);
+    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
   }
 
   update(_: number, delta: number): void {
