@@ -30,6 +30,8 @@ export class Durotar extends Phaser.Scene {
     const wallsdLayer = map.createLayer(LAYERS.WALLS, tileset, 0, 0);
 
     this.player = new Player(this, 400, 250, SPRITES.PLAYER);
+
+    this.cameras.main.startFollow(this.player);
   }
 
   update(_: number, delta: number): void {
