@@ -36,6 +36,9 @@ export class Durotar extends Phaser.Scene {
 
     this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.player.setCollideWorldBounds(true);
+
+    this.physics.add.collider(this.player, wallsdLayer);
+    wallsdLayer.setCollisionByExclusion([-1]);
   }
 
   update(_: number, delta: number): void {
