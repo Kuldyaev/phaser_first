@@ -9,29 +9,46 @@ export class Enemy extends Entity {
     type?: string
   ) {
     super(scene, x, y, texture);
-    this.setFlipX(false);
   }
 
   cycleTween(
-    duration?: number,
-    deltaX?: number,
-    deltaY?: number,
-    onrepeat?: void,
-    onyoyo?: void
+    duration: number,
+    deltaX: number,
+    deltaY: number,
+    onRepeat: () => void,
+    onYoYo: () => void
   ) {
     this.scene.tweens.add({
       targets: this,
-      duration: duration || 2000,
+      duration: duration,
       repeat: -1,
       yoyo: true,
-      x: this.x + (deltaX || 0),
-      y: this.y + (deltaY || 0),
-      onRepeat: () => {
-        onrepeat;
-      },
-      onYoyo: () => {
-        onyoyo;
-      },
+      x: this.x + deltaX,
+      y: this.y + deltaY,
+      onRepeat: onRepeat,
+      onYoyo: onYoYo,
+    });
+  }
+
+  stopcycleTween() {
+    this.scene.tweens.killTweensOf(this);
+  }
+
+  returnToOriginalPosition(
+    distanceToPosition: number,
+    moveSpeed: number,
+    initialPositionX: number,
+    initialPositionY: number,
+    cycleTween: () => void
+  ) {
+    this.setVelocity(0, 0);
+
+    this.scene.tweens.add({
+      targets: this,
+      x: initialPositionX,
+      y: initialPositionY,
+      duration: (distanceToPosition * 1000) / moveSpeed,
+      onComplete: cycleTween,
     });
   }
 }

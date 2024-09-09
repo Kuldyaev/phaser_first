@@ -49,6 +49,9 @@ export class Durotar extends Phaser.Scene {
     this.bear = new Bear(this, 50, 450, SPRITES.BEAR.base);
     this.goat = new Goat(this, 450, 250, SPRITES.GOAT.base);
 
+    this.bear.setPlayer(this.player);
+    this.goat.setPlayer(this.player);
+
     this.cameras.main.startFollow(this.player);
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
@@ -61,5 +64,7 @@ export class Durotar extends Phaser.Scene {
 
   update(_: number, delta: number): void {
     this.player.update(delta);
+    this.bear.update();
+    this.goat.update();
   }
 }
