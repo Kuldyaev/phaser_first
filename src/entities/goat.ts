@@ -7,7 +7,6 @@ export class Goat extends Enemy {
   private player: Entity;
   private initialPosition: { x: number; y: number };
   private isFollowing: boolean;
-  private isAlive: boolean;
   private agroDistance: number;
   private attackRange: number;
   private followRange: number;
@@ -64,32 +63,6 @@ export class Goat extends Enemy {
     this.setFlipX(false);
   }
 
-  // cycleTween() {
-  //   this.scene.tweens.add({
-  //     targets: this,
-  //     duration: 5000,
-  //     repeat: -1,
-  //     yoyo: true,
-  //     x: this.x + 100,
-  //     y: this.y,
-  //     onRepeat: () => {
-  //       this.play("leftGoat", true);
-  //     },
-  //     onYoyo: () => {
-  //       this.play("rightGoat", true);
-  //     },
-  //   });
-
-  //    this.cycleTween(
-  //      4000,
-  //      5,
-  //      100,
-  //      () => this.upBear(),
-  //      () => this.downBear()
-  //   );
-  //    this.setFlipX(false);
-  // }
-
   leftGoat() {
     this.play("leftGoat", true);
   }
@@ -105,27 +78,6 @@ export class Goat extends Enemy {
   followToPlayer(player) {
     this.scene.physics.moveToObject(this, player, this.moveSpeed);
   }
-
-  // returnToOriginalPosition(distanceToPosition) {
-  //   this.setVelocity(0, 0);
-
-  //   this.scene.tweens.add({
-  //     targets: this,
-  //     x: this.initialPosition.x,
-  //     y: this.initialPosition.y,
-  //     duration: (distanceToPosition * 1000) / this.moveSpeed,
-  //     onComplete: () => {
-  //       this.cycleTween(
-  //         5000,
-  //         100,
-  //         0,
-  //         () => this.leftGoat(),
-  //         () => this.rightGoat()
-  //       );
-  //       console.log("completed");
-  //     },
-  //   });
-  // }
 
   update() {
     /// 1. расчет дистанции до персонажа

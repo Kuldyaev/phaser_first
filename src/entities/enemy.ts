@@ -51,4 +51,21 @@ export class Enemy extends Entity {
       onComplete: cycleTween,
     });
   }
+
+  attack() {}
+
+  takeDamage(damage: number) {
+    super.takeDamage(damage);
+
+    if (this.health <= 0) {
+      this.deactivate(100, 100);
+    }
+  }
+
+  deactivate(x: number, y: number) {
+    this.stopcycleTween();
+    this.setPosition(x, y);
+    this.setVisible(false);
+    this.isAlive = false;
+  }
 }

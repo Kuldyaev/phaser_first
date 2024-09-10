@@ -7,7 +7,7 @@ export class Bear extends Enemy {
   private player: Entity;
   private initialPosition: { x: number; y: number };
   private isFollowing: boolean;
-  private isAlive: boolean;
+
   private agroDistance: number;
   private attackRange: number;
   private followRange: number;
